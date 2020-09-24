@@ -234,6 +234,7 @@ num === 7 ? console.log("yo") : console.log("no");
 ```javascript
 console.log();
 console.error(); // shows as warning in log.
+console.dir(...);
 ```
 ---
 ## Array
@@ -416,6 +417,10 @@ function funcName(arg1, arg2) {
 function funcName(arg1, arg2) {
     return arg1 + arg2
 }
+
+// function expressions
+const square = function (num) {
+  return num * num;
+}
+square(7);
 ```
-
-
