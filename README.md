@@ -235,3 +235,69 @@ num === 7 ? console.log("yo") : console.log("no");
 console.log();
 console.error(); // shows as warning in log.
 ```
+---
+## Array
+
+### creating
+```javascript
+let arr = [];
+let arr = [1,2,3,4];
+new Array(1,2,3,4);
+```
+### indexes
+```javascript
+arr[2];
+```
+### modifing Array
+```javascript
+arr[2] = 4;
+```
+### Push and Pop Array
+Push - adds element at the end of the array.
+Pop - remove element from end
+```javascript
+arr.push(45);
+arr.pop();
+```
+### Shift and Unshift
+Shift - remove from start
+Unshift - add to start
+```javascript
+arr.unshift(12);
+arr.shift();
+```
+### concat
+```javascript
+let arr1 = [1,2,3,4];
+let arr2 = [5,6,7,8];
+arr1.concat(arr2);
+```
+### includes() and IndexOf
+includes() gives true and false.
+IndexOf() gives -1 if value doesn't exist in array otherwise index of element.
+
+### reverse() and Join
+reverse() - reverse the array and changes the arr1 as well.
+Join() -
+```javascript
+let arr1 = [1,2,3,4];
+arr1.reverse(); // result [4,3,2,1]
+
+arr1.join() // result 4,3,2,1
+arr1.join(" ") // result 4 3 2 1
+arr1.join("-") // result 4-3-2-1
+```
+### slice()
+```javascript
+let arr1 = [111,22,33,44];
+arr1.slice(0, 2) // result = [111, 22]
+arr1.slice(2) // result = [33, 44]
+arr1.slice(-1) // result = [44]
+arr1.slice() // result [111,22,33,44]
+```
+> you can make copy of array like this- `arr1.slice()`
+
+
+
+
+
