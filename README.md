@@ -297,7 +297,38 @@ arr1.slice() // result [111,22,33,44]
 ```
 > you can make copy of array like this- `arr1.slice()`
 
+---
+## Object(called dictionary as well)
+1. Object are collection of properties.
+2. Properties are a key-value pair
+3. rather than accessing data using index, we use custom keys.
 
+```javascript
+const data = {
+  totalSteps: 2435,
+  sleep: "5hr",
+  workoutsThisWeek: 5
+};
+```
 
+### accessing 
+```javascript
+data.totalSteps // 2435
+data["totalSteps"]
+```
 
+### updating and adding
+```javascript
+const data = {
+  totalSteps: 2435,
+  sleep: "5hr",
+  workoutsThisWeek: 5
+};
 
+data["calories"] = 23 // adding
+data.calories = 23 // adding
+
+data["calories"] += 20 // updating
+data.calories += 23 // updating
+```
+---
