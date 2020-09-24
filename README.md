@@ -393,3 +393,29 @@ while(true) { // infinite loop
   }
 }
 ```
+---
+
+## Function
+```javascript
+// Basic function
+function funcName() {
+  // do something
+}
+
+// function with argument
+function funcName(arg) {
+  // do something
+}
+
+// function with mutliple argument
+function funcName(arg1, arg2) {
+  // do something
+}
+
+// function with return
+function funcName(arg1, arg2) {
+    return arg1 + arg2
+}
+```
+
+
