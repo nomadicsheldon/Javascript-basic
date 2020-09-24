@@ -332,3 +332,64 @@ data["calories"] += 20 // updating
 data.calories += 23 // updating
 ```
 ---
+
+## Loop
+
+### For Loop
+```javascript
+for(let i = 1, i <= 10, i++) {
+  // execute
+}
+```
+
+### For...OF Loop
+```javascript
+for(variable of iterable) {
+  statement
+}
+
+let arr = [111,22,33,44];
+for (let value of arr) {
+  console.log(value);
+}
+
+const data = {
+  totalSteps: 2435,
+  sleep: "5hr",
+  workoutsThisWeek: 5
+};
+for (let x of Object.keys(data)) {
+  console.log(x, data[x]);
+}
+
+Object.values(data); // for getting all values
+```
+
+### For...In Loop
+It will iterate only key of object.
+```javascript
+const data = {
+  totalSteps: 2435,
+  sleep: "5hr",
+  workoutsThisWeek: 5
+};
+for (let x in data) {
+  console.log(x); // output totalSteps => sleep => workoutsThisWeek
+}
+```
+
+### While Loop
+```javascript
+let num = 0
+while (num < 10) {
+  //execute
+  num ++
+}
+
+while(true) { // infinite loop
+  //execute task
+  if (condition) {
+    break;
+  }
+}
+```
