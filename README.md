@@ -134,4 +134,50 @@ Math.pow(2, 5) // 32
 // Get random number
 Math.random();
 ```
+
+## ParseInt & ParseFloat
+
+```javascript
+parseInt("24") //24
+parseInt("24.987") //24
+parseInt("24dayslater") //24
+parseInt("days24later") //NaN
+
+parseFloat("24.987") //24.987
+parseFloat("7") //7
+parseFloat("i am 3") //NaN
+```
 ---
+
+## Controlling Program Logic and Flow
+
+### Double equal and Triple equal
+
+Double equal - 
+1. Checks for equality of value, but not equality of type.
+2. It coerces both values to the same type and then compares them.
+3. This can lead to some unexpected results!
+
+```javascript
+5 == 5; //true
+"b" == "c"; //false
+7 == "7"; //true
+0 == ""; //true
+true == false; //false
+0 == false; //true
+null == undefined; //true
+```
+
+Triple equal -
+1. checks for equality of value AND type
+
+```javascript
+5 === 5; //true
+1 === 2; //false
+2 === "2"; //false
+false === 0; //false
+
+10 != "10"; //false
+10 !== "10"; //true
+```
+>Always Use === and !==
