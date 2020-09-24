@@ -181,3 +181,11 @@ false === 0; //false
 10 !== "10"; //true
 ```
 >Always Use === and !==
+
+---
+
+## Console
+```javascript
+console.log();
+console.error(); // shows as warning in log.
+```
