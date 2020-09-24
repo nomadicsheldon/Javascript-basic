@@ -182,6 +182,52 @@ false === 0; //false
 ```
 >Always Use === and !==
 
+### Syntax of `if`, `elseif`, `else`
+```javascript
+if (condition) {
+
+} elseif(condition) {
+
+} else {
+
+}
+```
+
+### Logical operator
+```javascript
+&& //AND
+|| //OR
+! //NOT
+```
+
+#### Operator Precedence
+`!` has higher precedence than `&&` has higher precedence than `||`
+```javascript
+let x = 7;
+x == 7|| x === 3 && x > 10; //true
+```
+
+### Syntax of `switch`
+```javascript
+Switch (key) {
+  case key:
+    break;
+  case key:
+    break;
+  default:
+    break;
+}
+```
+`break` is needed, if you will not put `break` then it will execute all cases after the success case.
+
+### Ternary Operator
+> condition ? expIfTrue: expIfFalse
+
+```javascript
+let num = 7;
+num === 7 ? console.log("yo") : console.log("no");
+```
+
 ---
 
 ## Console
