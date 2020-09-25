@@ -423,4 +423,26 @@ const square = function (num) {
   return num * num;
 }
 square(7);
+
+// function as return values
+function multiplyWithNumber(num) {
+  return function (x) {
+    return x * num;
+  };
+}
+
+let multiply = multiplyWithNumber(5)
+let triple = multiply(3)
+
+// Callback functions
+function callTwice(func) {
+  func();
+  func();
+}
+
+function hello() {
+  console.log("Hello");
+}
+
+callTwice(hello);
 ```
