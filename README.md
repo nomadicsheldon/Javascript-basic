@@ -446,3 +446,95 @@ function hello() {
 
 callTwice(hello);
 ```
+### Arrow function
+```javascript
+const square = function(x) {
+    return x * x;
+}
+
+const square = (x) => {
+    return x * x;
+}
+
+const square = (x) => ( x * x )
+
+const square = (x) => x * x;
+```
+
+### forEach
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+nums.forEach(function (num) {
+  console.log(num * 2);
+});
+
+nums.forEach(function (num, idx) {
+  console.log(num * 2, idx);
+});
+
+nums.forEach((num, idx) => console.log(num * 2, idx))
+```
+
+### Map
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+const newNums = nums.map(function (num) {
+  return num * 12;
+});
+
+const newNums = nums.map(num => num * 12);
+
+console.log(newNums);
+```
+
+### Find
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+const matchedNum = nums.find( num => num % 2 === 0) // firstmatch return
+```
+
+### Filter
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+const matchedNums = nums.filter( num => num % 2 === 0) // matched array
+```
+
+### Every
+If every element satisfied the condition.
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+const match = nums.every( num => num > 50) // returns false
+```
+
+### Some
+If any element satisfy the condition.
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+const match = nums.some( num => num > 50) // returns true 
+```
+
+### Sort
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+
+const sorted = nums.sort( (a, b) => a - b) // ascending  
+const sorted = nums.sort( (a, b) => b - a) // descending
+```
+
+### reduce
+```javascript
+const nums = [23, 34, 12, 35, 67, 27];
+const sum = nums.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+});
+
+const max = nums.reduce((maxValue, currentValue) => {
+  return Math.max(maxValue, currentValue)
+});
+```
