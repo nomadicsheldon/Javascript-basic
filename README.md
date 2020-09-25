@@ -538,3 +538,117 @@ const max = nums.reduce((maxValue, currentValue) => {
   return Math.max(maxValue, currentValue)
 });
 ```
+---
+## Default Parameters
+```javascript
+function multiply(x, y=1) {
+  return x * y;
+}
+```
+---
+
+## Spread for Function Calls
+You can use for any iterable type `String`, `Array`
+```javascript
+//Example 1:
+const nums = [23, 34, 12, 35, 67, 27];
+Math.max(...nums); // taking element out of array and a single elements
+
+//Example 2:
+const nums1 = [1, 2, 3, 4, 5];
+const nums2 = [6, 7, 8, 9, 10];
+const combinedNums = [...nums1, ...nums2];
+
+const nums1Copy = [...nums1];
+
+//Example 3:
+const personalDetail = {
+  name: "Himanshu",
+  gender: "Male",
+};
+
+const bioDetails = {
+  height: 165,
+  weight: 65,
+};
+
+const profileInfo = {
+  ...personalDetail,
+  ...bioDetails,
+  isLoggedIn: true,
+};
+
+//cloning
+const profileInfoClone = {...profileInfo}
+```
+---
+
+## Arguments
+```javascript
+function sum() {
+  const args = [...arguments];
+  return args.reduce((total, currentVal) => {
+    return total + currentVal;
+  });
+}
+
+sum(1,2,3,4,45)
+
+function fullName(firstName, lastName) {
+  console.log(arguments);
+}
+```
+> Argument will not be available in arrow function
+
+## Rest Parameters
+```javascript
+function sum(...nums) {
+  return nums.reduce((total, currentVal) => { // nums will be array
+    return total + currentVal;
+  });
+}
+
+sum(1,2,3,4,45)
+
+function fullName(firstName, lastName, ...titles) { // titles will be array
+  console.log(firstName, lastName, titles);  // "Himanshu", "rajput", ["iOS Developer", "fullstack developer"]
+}
+
+fullName("Himanshu", "rajput", "iOS Developer", "fullstack developer")
+
+const sum = (...nums) => {
+  return nums.reduce((total, currentVal) => { // nums will be array
+    return total + currentVal;
+  });
+}
+```
+---
+
+## Destructuring
+```javascript
+// Array
+const names = ["Himanshu", "Shivanshu", "Aman", "Ayush"];
+const [name1, name2, name3, name4] = names; // destructuring in array
+const [name1, ,...others] = names; // destructuring in array and escaping one element
+const [name1, ...others] = names; // destructuring in array
+
+// Object
+const personalDetail = {
+  name: "Himanshu",
+  gender: "Male",
+  height: 165,
+  weight: 65
+};
+const {name, height} = personalDetail; // order doesn't matter here.
+
+const {name: myName} = personalDetail; // change the key name for better reading, now you can use "myName"
+
+const {name, height, ...others} = personalDetail;
+```
+
+
+
+
+
+
+
