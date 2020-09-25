@@ -645,10 +645,41 @@ const {name: myName} = personalDetail; // change the key name for better reading
 
 const {name, height, ...others} = personalDetail;
 ```
+---
 
+## Shorthand Object Properties
+```javascript
+const getStats = (arr) => {
+  const max = Math.max(...arr);
+  const min = Math.min(...arr);
+  const sum = arr.reduce((sum, current) => sum + current);
+  const avg = sum / arr.length;
+  return {
+    max,
+    min,
+    sum,
+    avg,
+  };
+};
 
+const reviews = [4.5, 5.0, 3.44, 2.8, 3.5, 4.0, 3.5];
 
+const stats = getStats(reviews);
+```
 
+## Computed Properties
+> We can use a variable as a key name in an object literal property!
+```javascript
+const name = "Himanshu";
 
+const userRoles = {
+  [name]: "Admin"    //<= name is computed Property here
+};
 
+userRoles; //{"Himanshu": "Admin"}
+```
+---
+
+## This
+`this` refers to current execution scope.
 
