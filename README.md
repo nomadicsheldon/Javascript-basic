@@ -682,6 +682,7 @@ userRoles; //{"Himanshu": "Admin"}
 
 ## This
 `this` refers to current execution scope.
+
 ---
 
 ## DOM
