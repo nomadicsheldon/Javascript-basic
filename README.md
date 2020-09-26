@@ -682,4 +682,29 @@ userRoles; //{"Himanshu": "Admin"}
 
 ## This
 `this` refers to current execution scope.
+---
+
+## DOM
+```javascript
+document.getElementById("myId"); //To select the element with id of "myId"
+
+document.getElementsByTagName("p"); // It will return an array of elements with tag of "p" 
+
+document.getElementsByClassName("myClassName"); // It will return an array of elements with class name of "myClassName"
+
+// QuerySelector
+document.querySelector("h1"); // selecting tag
+document.querySelector("#myId"); // selecting based on Id.
+document.querySelector(".myClassName"); // selecting based on Class.
+document.querySelector("h1.myClassName"); // selecting more specific on tag a perticular class.
+
+document.querySelector("section ul li.myClassName"); // selecting more specific.
+document.querySelector('input[type="password"]'); // selecting more specific.
+
+document.querySelectorAll("h1") // all h1 element got selected and return as an array
+```
+
+
+
+
 
