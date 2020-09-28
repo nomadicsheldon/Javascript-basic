@@ -705,8 +705,29 @@ document.querySelector('input[type="password"]'); // selecting more specific.
 
 document.querySelectorAll("h1") // all h1 element got selected and return as an array
 ```
+## Properties and methods
 
-
+1. classList
+2. getAttribute()
+3. setAttribute()
+4. appendChild()
+5. append
+6. prepend
+7. removeChild()
+8. remove()
+9. createElement
+10. getComputedStyle()
+11. InsertBefore()
+12. InsertAdjacentElement()
+13. innerText
+14. textContent
+15. innerHTML
+16. value
+17. parentElement
+18. children
+19. nextElementSibling
+20. previousElementSibling
+21. style
 
 
 
