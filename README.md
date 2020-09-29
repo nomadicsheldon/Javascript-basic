@@ -600,6 +600,7 @@ function fullName(firstName, lastName) {
 }
 ```
 > Argument will not be available in arrow function
+---
 
 ## Rest Parameters
 ```javascript
