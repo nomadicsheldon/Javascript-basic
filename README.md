@@ -730,5 +730,52 @@ document.querySelectorAll("h1") // all h1 element got selected and return as an 
 20. previousElementSibling
 21. style
 
+---
 
+## Promises
+
+```javascript
+const makePromise = () => {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const rdm = Math.random();
+      if (rdm < 0.5) {
+        resolve();
+      } else {
+        reject();
+      }
+    }, 5000);
+  });
+};
+
+makePromise()
+  .then(() => {
+    console.log("Kept promise");
+  })
+  .catch(() => {
+    console.log("fail promise");
+  });
+```
+
+### Promises chaining
+
+```javascript
+// Chaining -
+// when first request response in neccessary for proceeding to second request and so on
+request("/user")
+  .then((res) => {
+    const id = res.id;
+    return request(`/home/${id}`);
+  })
+  .then((res) => {
+    const id = res.id;
+    return request(`/dashboard/${id}`);
+  })
+  .then((res) => {
+    console.log(res);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
 
