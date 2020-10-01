@@ -779,3 +779,24 @@ request("/user")
   });
 ```
 
+---
+
+## AJAX
+
+* Asynchronous
+* Javascript
+* And
+* XML (or JSON)
+
+No one is using **XML** now a days and everyone moved to **JSON** formatting.
+You will hear **AJAX** word mostly, not **AJAJ**.
+People are used to saying as **AJAX**.
+
+**JSON**
+
+* Java
+* Script
+* Object
+* Notation
+
+
