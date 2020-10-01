@@ -800,3 +800,12 @@ People are used to saying as **AJAX**.
 * Notation
 
 
+---
+
+## ways to make HTTP Requests
+
+* **XMLHttpRequests**
+* **Fetch**
+* **Axios**
+
+> XMLHttpRequests doesn't support promises.
