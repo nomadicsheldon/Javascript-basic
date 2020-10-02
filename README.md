@@ -951,3 +951,44 @@ class Color {
 const newColor = new Color(222, 34, 45);
 ```
 
+### Extends, Super, Subclasses
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  details() {
+    return `${this.name} has age ${this.age}`;
+  }
+}
+
+// including functionality of person
+class Man extends Person {
+  constructor(name, age, sport = "cricket") {
+    super(name, age); // reusing functionality of person
+    this.sport = sport; // adding new property
+  }
+  run() {
+    console.log("run fast!!!");
+    return "run fast!!!";
+  }
+}
+
+// including functionality of person
+class Woman extends Person {
+  code() {
+    console.log("women are better in coding");
+    return "women are better in coding";
+  }
+}
+
+const himanshu = new Man("Himanshu", 27);
+const anu = new Woman("anu", 27);
+
+himanshu.run();
+anu.code();
+```
+---
