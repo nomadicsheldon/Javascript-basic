@@ -870,3 +870,26 @@ async function getDataParallel() {
   console.log(res3.data);
 }
 ```
+
+**Promise all**
+
+```javascript
+// parallel requests
+async function getDataParallel() {
+  const req1 = axios.get("<url1>");
+  const req2 = axios.get("<url2>");
+  const req3 = axios.get("<url3>");
+  
+  const results = await Promise.all([req1, req2, req3]) // when all the promise got resolved
+  
+  console.log(results);
+  
+  printResults(results);
+}
+
+function printResults(results) {
+  for (let result of results) {
+    console.log(result);
+  }
+}
+```
