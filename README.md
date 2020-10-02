@@ -893,3 +893,39 @@ function printResults(results) {
   }
 }
 ```
+---
+
+## Factory and Constructor functions
+
+* **Factory Functions** - everytime `rgb` instance will be created
+* **Constructor Functions** - only one time `rgb` instance will be created, and we can see it inside prototype
+
+```javascript
+
+// Factory Functions
+function makeColor(r, g, b) {
+  const color = {};
+  color.r = r;
+  color.g = g;
+  color.b = b;
+
+  color.rgb = function () {
+    const { r, g, b } = this;
+    return `${r}, ${g}, ${b}`;
+  };
+  return color;
+}
+
+// Constructor Functions
+function Color(r, g, b) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
+}
+
+// don't use arrow function here otherwise "this" will behave differently
+Color.prototype.rgb = function () {
+  const { r, g, b } = this;
+  return `${r}, ${g}, ${b}`;
+};
+```
