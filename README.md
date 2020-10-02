@@ -828,7 +828,7 @@ async function Hello() {
 
 **async with await**
 
-``javascript
+```javascript
 async function getData() {
   try {
     const res = await axios.get("<URL>");
@@ -839,7 +839,7 @@ async function getData() {
 }
 
 getData();
-``
+```
 
 **Sequential and Parallel requests**
 
