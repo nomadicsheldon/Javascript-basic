@@ -898,7 +898,7 @@ function printResults(results) {
 ## Factory and Constructor functions
 
 * **Factory Functions** - everytime `rgb` instance will be created
-* **Constructor Functions** - only one time `rgb` instance will be created, and we can see it inside prototype
+* **Constructor Functions** - only one copy of `rgb` for all instances will be created, and we can see it inside prototype
 
 ```javascript
 
@@ -929,3 +929,25 @@ Color.prototype.rgb = function () {
   return `${r}, ${g}, ${b}`;
 };
 ```
+--
+
+## Classes
+
+```javascript
+class Color {
+  // constructure is a function will execute immediately whenever a new Color is created.
+  constructor(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+  }
+
+  rgb() {
+    const { r, g, b } = this;
+    return `${r}, ${g}, ${b}`;
+  }
+}
+
+const newColor = new Color(222, 34, 45);
+```
+
