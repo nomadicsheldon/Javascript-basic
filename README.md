@@ -809,3 +809,64 @@ People are used to saying as **AJAX**.
 * **Axios**
 
 > XMLHttpRequests doesn't support promises.
+
+---
+
+## async and await
+
+### async keyword
+
+* async functions always return a promise.
+* If the function returns a value, the promise will be resolved with that value.
+* If the function throws an exception, the promise will be rejected
+
+```javascript
+async function Hello() {
+  return 'Hello';
+}
+```
+
+**async with await**
+
+``javascript
+async function getData() {
+  try {
+    const res = await axios.get("<URL>");
+    console.log(res.data); // only runs once previous line is complete
+  } catch (err) {
+    console.log("error", err);
+  }
+}
+
+getData();
+``
+
+**Sequential and Parallel requests**
+
+```javascript
+// Sequential requests
+async function getDataSequential() {
+  const res1 = await axios.get("<url1>"); // 1st complete
+  const res2 = await axios.get("<url2>"); // then 2nd complete
+  const res3 = await axios.get("<url3>"); // then 3rd complete
+
+  console.log(res1.data);
+  console.log(res2.data);
+  console.log(res3.data);
+}
+
+// parallel requests
+async function getDataParallel() {
+  const req1 = axios.get("<url1>");
+  const req2 = axios.get("<url2>");
+  const req3 = axios.get("<url3>");
+  // not waiting for one another
+  const res1 = await req1;
+  const res2 = await req2;
+  const res3 = await req3;
+
+  console.log(res1.data);
+  console.log(res2.data);
+  console.log(res3.data);
+}
+```
