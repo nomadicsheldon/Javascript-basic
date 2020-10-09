@@ -1,131 +1,50 @@
 const fs = require("fs");
 const crypto = require("crypto");
+const util = require("util");
+const Repository = require("./repository");
 
-class UsersRepository {
-  constructor(filename) {
-    if (!filename) {
-      throw new Error("Creating a repository requires a filename");
-    }
+const scrypt = util.promisify(crypto.scrypt);
 
-    this.filename = filename;
-    // for our case sync function is well suited.
-    try {
-      console.log("File already exist, so accessing it");
-      fs.accessSync(this.filename); // accessing this file
-    } catch (err) {
-      console.log("creating new file");
-      fs.writeFileSync(this.filename, "[]"); // creating this file
-    }
-  }
-
-  async getAll() {
-    // open the file called this.filename
-    // Parse the contents
-    // Return the parsed data
-    return JSON.parse(
-      await fs.promises.readFile(this.filename, {
-        encoding: "utf8",
-      })
-    );
-  }
-
+class UsersRepository extends Repository {
   async create(attrs) {
+    // attrs === { email: "", password: ""}
     attrs.id = this.randomId();
+
+    const salt = crypto.randomBytes(8).toString("hex");
+    const buf = await scrypt(attrs.password, salt, 64);
+
     const records = await this.getAll();
-    records.push(attrs);
+    const record = {
+      ...attrs,
+      password: `${buf.toString("hex")}.${salt}`,
+    };
+    records.push(record);
     // write the updated "records" array back to this.filename
     await this.writeAll(records);
 
-    return attrs;
+    return record;
   }
 
-  async writeAll(records) {
-    await fs.promises.writeFile(
-      this.filename,
-      JSON.stringify(records, null, 2) // second and third for indentation
-    );
-  }
+  async comparePasswords(saved, supplied) {
+    // saved -> password saved in our database. "hashed.salt"
+    // Supplied -> password given to us by a user trying sign in
 
-  randomId() {
-    return crypto.randomBytes(4).toString("hex");
-  }
-
-  async getOne(id) {
-    const records = await this.getAll();
-    return records.find((record) => record.id === id);
-  }
-
-  async delete(id) {
-    const records = await this.getAll();
-    const filteredRecords = records.filter((record) => record.id != id);
-    await this.writeAll(filteredRecords);
-  }
-
-  async update(id, attrs) {
-    const records = await this.getAll();
-    const updateRecord = records.find((record) => record.id === id);
-
-    if (!updateRecord) {
-      throw new Error(`Record with id ${id} not found`);
-    }
-
-    Object.assign(updateRecord, attrs);
-    await this.writeAll(records);
-  }
-
-  async getOneBy(filters) {
-    const records = await this.getAll();
-
-    for (let record of records) {
-      let found = true;
-
-      for (let key in filters) {
-        if (record[key] !== filters[key]) {
-          found = false;
-        }
-      }
-
-      if (found) {
-        return record;
-      }
-    }
+    // const result = saved.split(".");
+    // const hashed = result[0];
+    // const salt = result[1];
+    const [hashed, salt] = saved.split(".");
+    const hashedSuppliedBuf = await scrypt(supplied, salt, 64);
+    return hashed === hashedSuppliedBuf.toString("hex");
   }
 }
 
 module.exports = new UsersRepository("users.json");
 
 //##########################
-// const test = async () => {
-//   const repo = new UsersRepository("users.json");
-
 //   // create new user
 //   //   await repo.create({
 //   //     email: "rajput13himanshu@gmail.com",
 //   //     password: "asdasd",
 //   //   });
 
-//   // Read its contents
-//   //   const users = await repo.getAll();
-//   //   console.log(users);
-
-//   // get user by id
-//   // const user = await repo.getOne("01ac9695");
-//   //   console.log(user);
-
-//   // delete
-//   //   await repo.delete("01ac9695");
-
-//   //   update
-//   //   await repo.update("01ac9695", { password: "asdasd" });
-
-// //   getOneBy
-// //   const user = await repo.getOneBy({
-// //     email: "rajput13himanshu@gmail.com",
-// //     password: "asdasd",
-// //   });
-// //   console.log(user);
-
-// };
-
-// test();
 //##########################
